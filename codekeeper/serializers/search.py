@@ -8,6 +8,10 @@ class SearchDocsSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=100)
 
 
+class SearchFacetCountSerializer(serializers.Serializer):
+    facet_fields = serializers.DictField()
+
+
 class SearchResultsSerializer(serializers.Serializer):
     docs = SearchDocsSerializer(many=True)
     numFound = serializers.IntegerField()
@@ -15,4 +19,4 @@ class SearchResultsSerializer(serializers.Serializer):
 
 class SearchSerializer(serializers.Serializer):
     result = SearchResultsSerializer()
-
+    facet_counts = SearchFacetCountSerializer()
