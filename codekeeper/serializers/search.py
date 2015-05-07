@@ -13,7 +13,6 @@ class SearchResultsSerializer(serializers.Serializer):
     numFound = serializers.IntegerField()
 
 
-
 class SearchSerializer(serializers.Serializer):
     result = SearchResultsSerializer()
 
