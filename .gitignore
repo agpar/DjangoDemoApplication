@@ -1,0 +1,14 @@
+__init__.pyc
+
+*.pyc
+
+.DS_Store
+
+/.idea/*
+
+codekeeper/migrations/*
+
+/app_env/*
+
+*.sqlite3
+
