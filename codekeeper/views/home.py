@@ -13,6 +13,7 @@ class HomePageView(views.APIView):
         response = Response({
             'snippets': reverse('snippet-list', request=request),
             'tags': reverse('tag-list', request=request),
-            'people': reverse('person-list', request=request)
+            'people': reverse('person-list', request=request),
+            'search': reverse('search-view', request=request)
             })
         return response

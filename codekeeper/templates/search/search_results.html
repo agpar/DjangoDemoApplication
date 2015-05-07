@@ -1,11 +1,11 @@
-{% if content.results%}
-{% for result in content.results %}
-<div class="row">
-    <div class="search-result">
-        <p><a href="/{{ result.type }}/{{ result.item_id }}">{{ result.type }} - {{ result.id }}</a></p>
+{% if content.search_results.result.numFound > 0 %}
+    {% for doc in content.search_results.result.docs %}
+    <div class="row">
+        <div class="search-result">
+            <p><a href="/{{ doc.type }}/{{ doc.item_id }}">{{ doc.title }}</a> --- Type: {{ doc.type }} --- ID: {{ doc.id }}</p>
+        </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 {% else %}
 <h5>No Results found.</h5>
 {% endif %}

@@ -22,6 +22,6 @@ class SearchView(GenericAPIView):
             return Response({"results": []})
 
         solrconn = scorched.SolrInterface(settings.SOLR_SERVER)
-        resp = solrconn.query(text=querydict.get('q')).execute()
-
-        return Response({'results': resp.result.docs})
+        solrResp = solrconn.query(text=querydict.get('q')).facet_by(fields=["type", "first_name", "tags"]).execute()
+        serialized_response = self.get_serializer(solrResp)
+        return Response({'search_results': serialized_response.data})

@@ -16,6 +16,10 @@ class Tag(models.Model):
     def __str__(self):
         return "{0}".format(self.name)
 
+    @property
+    def title(self):
+        return "{0}".format(self.name)
+
 @receiver(post_save, sender=Tag)
 def solr_index(sender, instance, created, **kwargs):
     import uuid

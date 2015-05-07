@@ -19,6 +19,10 @@ class Person(models.Model):
     def full_name(self):
         return "{0} {1}".format(self.first_name, self.last_name)
 
+    @property
+    def title(self):
+        return "{0} {1}".format(self.first_name, self.last_name)
+
     def __str__(self):
         return "{0}, {1}".format(self.last_name, self.first_name)
 
@@ -38,7 +42,8 @@ def solr_index(sender, instance, created, **kwargs):
         "type": "person",
         "item_id": instance.pk,
         "first_name": instance.first_name,
-        "last_name": instance.last_name
+        "last_name": instance.last_name,
+        "title" : instance.title
     }
 
     solrconn.add(d)
