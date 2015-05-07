@@ -2,7 +2,7 @@
 {% for result in content.results %}
 <div class="row">
     <div class="search-result">
-        <p>{{ result.type }} - {{ result.id }}</p>
+        <p><a href="/{{ result.type }}/{{ result.item_id }}">{{ result.type }} - {{ result.id }}</a></p>
     </div>
 </div>
 {% endfor %}

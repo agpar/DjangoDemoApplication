@@ -1,10 +1,8 @@
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from codekeeper import settings
-from rest_framework import status
 from rest_framework.renderers import JSONRenderer
 import scorched
-import pdb
 
 from codekeeper.serializers.search import SearchSerializer
 from codekeeper.renderers.custom_html_renderer import CustomHTMLRenderer
